@@ -57,7 +57,7 @@ namespace ChoThueSanVanTruot.Controllers
             if (data != null)
             {
                 Session["User"] = data;
-                return RedirectToAction("index","Home");
+                return RedirectToAction("Index","Home");
             }
             else
             {
