@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Đặng Minh Khánh</title>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>brandon</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="~/Content/css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="~/Content/css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="~/Content/css/responsive.css">
+    <!-- fevicon -->
+    <link rel="icon" href="~/Content/images/fevicon.png" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="~/Content/css/jquery.mCustomScrollbar.min.css">
+</head>
+
+<body class="main-layout">
+    <!-- end loader -->
+    @{var user = Session["User"] as ChoThueSanVanTruot.Models.User;}
+    <!-- header -->
+    <div id="mySidepanel" class="sidepanel">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a> @Html.ActionLink("ChoThueSanVanTruot", "Index", "Home")</a>
+        <a> @Html.ActionLink("History", "About", "Home")</a>
+        <a> @Html.ActionLink("Contact", "Contact", "Home")</a>
+        <a> @Html.ActionLink("Skate court", "Index", "SanVanTruot")</a>
+        <a> @Html.ActionLink("List", "Index", "ShoppingCart")</a>
+        <a>@Html.ActionLink("Booking", "Indexi", "ShoppingCart")</a>
+    </div>
+    <header>
+        <div class="header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                        <div class="full">
+                            <div class="center-desk">
+                                <div class="logo">
+                                    <a class="login" @Html.ActionLink("ChoThueSanVanTruot", "Index", "Home")</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+                        <div class="right_bottun">
+                            <div class="login">
+                                @{ if (user == null)
+                                    {
+                                        <a class="login">@Html.ActionLink("Đăng Nhập", "DangNhap", "User")</a>
+                                        <a class="login">@Html.ActionLink("Đăng Kí", "DangKi", "User")</a>
+
+                                    }
+                                }
+                                <div class="center-desk">
+                                    @if (user != null)
+                                    {
+                                        <a class="login1">Xin Chao @user.email</a>
+                                        <a class="login">@Html.ActionLink("Đăng Xuất", "Logout", "User")</a>
+                                        <a class="login"><button class="openbtn" onclick="openNav()"><img src="~/Content/images/menu_icon.png" alt="#" /> </button></a>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+</body>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", required: false)
+</html>
+<div class="container body-content">
+    @RenderBody()
+    <hr />
+    <footer>
+        <p>&copy; @DateTime.Now.Year - Đặng Minh Khánh</p>
+    </footer>
+</div>
+<script src="~/Content/js/jquery.min.js"></script>
+<script src="~/Content/js/popper.min.js"></script>
+<script src="~/Content/js/bootstrap.bundle.min.js"></script>
+<script src="~/Content/js/jquery-3.0.0.min.js"></script>
+<!-- sidebar -->
+<script src="~/Content/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="~/Content/js/custom.js"></script>
+
+
+<script>
+    function openNav() {
+        document.getElementById("mySidepanel").style.width = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidepanel").style.width = "0";
+    }
+</script>

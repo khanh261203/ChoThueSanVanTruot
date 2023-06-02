@@ -1,0 +1,92 @@
+﻿@model IEnumerable<ChoThueSanVanTruot.Models.SanVanTruot>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<br />
+<br />
+<br />
+<form method="get">
+    <p>
+        Đơn Giá Min : <input id="Text1" name="txtMin" type="text" />
+        Đơn Giá Max : <input id="Text1" name="txtMax" type="text" />
+        <input id="submit1" type="submit" value="Tìm kiếm" />
+    </p>
+</form>
+<button type="button" class="btn btn-outline-primary">@Html.ActionLink("Thêm sân", "Create")</button>
+<br />
+<br />
+<table class="table table-bordered"> <Reference Include="System.Data.Linq" /> 
+    <tr>
+        <th>
+            ID sân
+        </th>
+        <th>
+            Tên sân
+        </th>
+        <th>
+            Loại sân
+        </th>
+        <th>
+            Địa chỉ sân
+        </th>
+        <th>
+            Số lượng ván tối đa
+        </th>
+        <th>
+            Giá
+        </th>
+        <th>
+            Ngày Tạo
+        </th>
+        <th>
+            Hình 
+        </th>
+        <th>
+            Trạng Thái
+        </th>
+        <th>
+            Chức năng
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.idsan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tensan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.loaisan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.diachisan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.soluongtoida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ngaytao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.trangthai)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.idsan }) |
+                @Html.ActionLink("Details", "Details", new { id = item.idsan }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.idsan })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ChoThueSanVanTruot" Class="ChoThueSanVanTruotDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=LAPTOP-7CV0O043\SQLEXPRESS;Initial Catalog=ChoThueSanVanTruot;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ChoThueSanVanTruotConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.SanVanTruot" Member="SanVanTruots">
+    <Type Name="SanVanTruot">
+      <Column Name="idsan" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="tensan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="loaisan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="diachisan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="soluongtoida" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="gia" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ngaytao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="hinh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="trangthai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="SanVanTruot_Booking" Member="Bookings" ThisKey="idsan" OtherKey="idsan" Type="Booking" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Booking" Member="Bookings">
+    <Type Name="Booking">
+      <Column Name="idbooking" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idsan" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ngaybook" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ngaychoi" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="soluong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="thanhtien" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="SanVanTruot_Booking" Member="SanVanTruot" ThisKey="idsan" OtherKey="idsan" Type="SanVanTruot" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[User]" Member="Users">
+    <Type Name="User">
+      <Column Name="iduser" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="diachi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sdt" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="matkhau" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

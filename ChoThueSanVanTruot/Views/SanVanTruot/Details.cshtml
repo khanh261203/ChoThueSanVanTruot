@@ -1,0 +1,77 @@
+﻿@model ChoThueSanVanTruot.Models.SanVanTruot
+
+@{
+    ViewBag.Title = "Details";
+}
+<br />
+<br />
+<br />
+<h2>Details</h2>
+
+<div>
+    <h4>SanVanTruot</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tensan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tensan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.loaisan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.loaisan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.diachisan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.diachisan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.soluongtoida)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.soluongtoida)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gia)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ngaytao)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ngaytao)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.hinh)
+        </dt>
+        <dd>
+            <img src="~/hinh/@Url.Content(Model.hinh)" />
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.trangthai)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.trangthai)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idsan }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
